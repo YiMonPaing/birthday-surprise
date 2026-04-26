@@ -45,9 +45,6 @@ I love you more than words can ever explain.`,
   // Photo file names (put these files inside assets/photo/):
   photos: ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg"],
 
-  // Optional custom link for the QR code. Leave empty to use the current page URL.
-  qrText: "",
-
   // Hidden final message:
   hiddenMessage:
     "No matter where life takes us, my heart will always choose you. Happy Birthday, my forever love. - မီးလေး"
@@ -70,8 +67,6 @@ const birthdayLetter = document.getElementById("birthdayLetter");
 const reasonsList = document.getElementById("reasonsList");
 const timeline = document.getElementById("timeline");
 const galleryGrid = document.getElementById("galleryGrid");
-const qrCode = document.getElementById("qrCode");
-const qrLabel = document.getElementById("qrLabel");
 
 const revealMessageBtn = document.getElementById("revealMessageBtn");
 const hiddenMessage = document.getElementById("hiddenMessage");
@@ -127,35 +122,6 @@ function renderGallery() {
     card.addEventListener("click", () => openLightbox(photoPath));
     galleryGrid.appendChild(card);
   });
-}
-
-function getQrText() {
-  const customText = config.qrText.trim();
-  if (customText) return customText;
-
-  return window.location.href;
-}
-
-function renderQrCode() {
-  if (!qrCode || typeof QRCode === "undefined") return;
-
-  const qrText = getQrText();
-  qrCode.innerHTML = "";
-
-  new QRCode(qrCode, {
-    text: qrText,
-    width: 180,
-    height: 180,
-    colorDark: "#b84d79",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
-
-  if (qrLabel) {
-    qrLabel.textContent = config.qrText.trim()
-      ? `This heart opens: ${config.qrText}`
-      : "This heart opens the current page URL.";
-  }
 }
 
 function openLightbox(src) {
@@ -242,7 +208,6 @@ function init() {
   renderReasons();
   renderTimeline();
   renderGallery();
-  renderQrCode();
   startHearts();
 }
 
