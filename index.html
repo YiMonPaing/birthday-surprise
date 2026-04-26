@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hearts-container" id="heartsContainer" aria-hidden="true"></div>
+
+  <!-- PASSWORD LOCK SCREEN -->
+  <section id="lockScreen" class="screen active">
+    <div class="card lock-card">
+      <p class="eyebrow">A special surprise waits for you...</p>
+      <h1 class="script-title">Happy Birthday,ကော</h1>
+      <p class="subtitle">
+        Enter your secret password to open your birthday experience.
+      </p>
+
+      <form id="passwordForm" class="password-form" autocomplete="off">
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password"
+          required
+        />
+        <button type="submit" class="btn primary-btn">Unlock My Surprise</button>
+        <p id="passwordMessage" class="message" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- OPEN GIFT SCREEN -->
+  <section id="giftScreen" class="screen hidden">
+    <div class="card gift-card">
+      <p class="eyebrow">You unlocked it!</p>
+      <h2>Your Birthday Gift</h2>
+      <div id="giftBox" class="gift-box">
+        <div class="gift-lid"></div>
+        <div class="gift-body"></div>
+        <div class="gift-ribbon-vertical"></div>
+        <div class="gift-ribbon-horizontal"></div>
+      </div>
+      <button id="openGiftBtn" class="btn primary-btn">Open Your Gift</button>
+    </div>
+  </section>
+
+  <!-- MAIN BIRTHDAY WEBSITE -->
+  <main id="mainWebsite" class="hidden">
+    <header class="hero section card">
+      <p class="eyebrow">For the most special person</p>
+      <h1 id="heroTitle">Happy Birthday My Love</h1>
+      <p id="heroSubtitle" class="subtitle"></p>
+    </header>
+
+    <section class="section card">
+      <h2>My Favorite Images</h2>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section class="section card">
+      <h2>A Letter From My Heart</h2>
+      <p id="birthdayLetter" class="letter-text"></p>
+    </section>
+
+    <section class="section card">
+      <h2>Why I Love You</h2>
+      <ul id="reasonsList" class="reasons-list"></ul>
+    </section>
+
+    <section class="section card">
+      <h2>Our Love Timeline</h2>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section class="section card qr-section">
+      <h2>Scan My Heart</h2>
+      <p class="subtitle qr-subtitle">
+        Scan this code to reopen the birthday surprise anytime.
+      </p>
+      <div class="qr-heart-shell">
+        <div class="qr-heart-top left"></div>
+        <div class="qr-heart-top right"></div>
+        <div class="qr-heart-body"></div>
+        <div class="qr-code-frame">
+          <div id="qrCode" class="qr-code" aria-label="QR code for birthday surprise"></div>
+        </div>
+      </div>
+      <p id="qrLabel" class="qr-label"></p>
+    </section>
+
+    <section class="section card final-section">
+      <h2>Before You Go...</h2>
+      <button id="revealMessageBtn" class="btn primary-btn" type="button">
+        Tap for one last message
+      </button>
+      <p id="hiddenMessage" class="hidden-message"></p>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+    <button id="closeLightbox" class="close-lightbox" aria-label="Close image preview">
+      ×
+    </button>
+    <img id="lightboxImage" src="" alt="Enlarged memory" />
+  </div>
+
+  <script src="qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
